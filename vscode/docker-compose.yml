@@ -1,0 +1,20 @@
+version: '3.2'
+
+services:
+  vscode:
+    container_name: js-vscode
+    restart: unless-stopped
+    #image: linuxserver/code-server
+    build: .
+    image: js/vscode
+    ports:
+      - 8888:8443
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./config:/config
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Lisbon
+      - PASSWORD=admin
+      - SUDO_PASSWORD=admin

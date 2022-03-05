@@ -1,0 +1,15 @@
+version: '3.2'
+
+services:
+  portainer:
+    container_name: js-portainer
+    restart: unless-stopped
+    image: portainer/portainer-ce:latest
+    security_opt:
+      - no-new-privileges=true
+    ports:
+      - 9000:9000
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /home/pi/docker/portainer/data:/data

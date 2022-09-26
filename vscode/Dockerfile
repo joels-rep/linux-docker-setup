@@ -18,13 +18,13 @@ WORKDIR $HOME
 RUN apt-get update; \
     apt-get install curl build-essential gcc make -y; \
     #install rust
-    curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh -s -- -y; \
-    echo "export PATH=/config/workspace/.cargo/bin:$PATH" >> ~/.bashrc; \
-    bash; \
-    #install extensions
-    /usr/local/bin/code-server --install-extension matklad.rust-analyzer; \
-    /usr/local/bin/code-server --install-extension ms-python.python; \
-    /usr/local/bin/code-server --install-extension alphabotsec.vscode-eclipse-keybindings;
+    #curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh -s -- -y; \
+    #echo "export PATH=/config/workspace/.cargo/bin:$PATH" >> ~/.bashrc; \
+    #bash; \
+    ##install extensions
+    #/usr/local/bin/code-server --install-extension matklad.rust-analyzer; \
+    #/usr/local/bin/code-server --install-extension ms-python.python; \
+    #/usr/local/bin/code-server --install-extension alphabotsec.vscode-eclipse-keybindings;
     #create ssh know_hosts
     mkdir -p ~/.ssh; \
     ssh-keyscan github.com >> ~/.ssh/known_hosts; \

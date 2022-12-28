@@ -125,7 +125,7 @@ case $input in
             * )
                 ;;
         esac
-        #----------Portainer----------
+        #----------Wireguard----------
         read -r -p "Do you want configure Wireguard Container? [Y/n] " input
         case $input in
             [yY])
@@ -137,6 +137,19 @@ case $input in
             * )
                ;;
         esac
+        #----------MongoDB----------
+        read -r -p "Do you want configure MongoDB Container? [Y/n] " input
+         case $input in
+             [yY])
+                 cd ~
+                 cd ./docker/mongodb
+                 docker-compose up -d
+                 docker logs js-mongodb
+                 ;;
+             * )
+                ;;
+         esac
+
         ;;
       * )
         ;;

@@ -17,6 +17,9 @@ WORKDIR $HOME
 
 RUN apt-get update; \
     apt-get install curl build-essential gcc make -y; \
+    #install nodejs version 18lts
+    curl -sL https://deb.nodesource.com/setup_18.x | bash; \
+    apt-get install nodejs; \
     #install rust
     #curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh -s -- -y; \
     #echo "export PATH=/config/workspace/.cargo/bin:$PATH" >> ~/.bashrc; \

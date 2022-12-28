@@ -11,6 +11,7 @@ services:
       - 8888:8443
       - 3000:3000
       - 8080:8080
+      - 4001:4001
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ./config:/config

@@ -15,6 +15,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ./config:/config
+      - ~/.ssh:/config/.ssh
     environment:
       - PUID=1000
       - PGID=1000

@@ -108,7 +108,7 @@ case $input in
                 cd ./docker/nextcloud
                 sudo blkid
                 read -r -p "Write the partion UUID to mount: " partition
-                sudo bash -c 'echo "PARTUUID=$partition  /mnt/nextcloud_disk/nextcloud ntfs defaults,noatime,uid=1000,gid=1000,dmask=007 0 0" >> /etc/fstab'
+                sudo bash -c 'echo "PARTUUID=$partition  /mnt/nextcloud_disk/nextcloud ntfs defaults,nofail,noatime,uid=1000,gid=1000,dmask=007 0 0" >> /etc/fstab'
                 docker-compose up -d
                 ;;
             * )

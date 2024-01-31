@@ -7,11 +7,13 @@ services:
     #image: linuxserver/code-server
     build: .
     image: js/vscode
+    #networks:
+      #- vscode
     ports:
       - 8888:8443
       - 3000:3000
       - 8080:8080
-      - 4001:4001
+      - 4005:4001
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ./config:/config
@@ -22,3 +24,26 @@ services:
       - TZ=Europe/Lisbon
       - PASSWORD=admin
       - SUDO_PASSWORD=admin
+
+        #postgresdb:
+        #image: postgres:14.1-alpine
+        #container_name: js-postgres
+        #restart: unless-stopped
+        #networks:
+        #- vscode
+        #user: 1000:1000
+        #environment:
+        #- POSTGRES_USER=root
+        #- POSTGRES_PASSWORD=root
+        #- POSTGRES_DB=root
+        #command: /bin/bash
+        #ports:
+        #- 5432:5432
+        #volumes:
+        #- /etc/localtime:/etc/localtime:ro
+        #- /home/pi/docker/vscode/postgres:/var/lib/postgresql/data
+
+        #networks:
+        #vscode:
+        #driver: bridge
+

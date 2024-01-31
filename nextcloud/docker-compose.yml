@@ -12,13 +12,13 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Europe/London
-      - MYSQL_ROOT_PASSWORD=nextcloud
+      - MYSQL_ROOT_PASSWORD=nextcloud123
       #- POSTGRES_DB=nextcloud
       #- POSTGRES_USER=nextcloud
       #- POSTGRES_PASSWORD=password
-      - MYSQL_DATABASE=nextcloud
-      - MYSQL_USER=nextcloud
-      - MYSQL_PASSWORD=nextcloud
+      - MYSQL_DATABASE=nextcloud123
+      - MYSQL_USER=nextcloud123
+      - MYSQL_PASSWORD=nextcloud123
     ports:
       - 3306:3306
     volumes:
@@ -40,12 +40,12 @@ services:
       #- POSTGRES_USER=nextcloud
       #- POSTGRES_PASSWORD=password
       #- POSTGRES_HOST=js-postgres
-      - MYSQL_PASSWORD=nextcloud
-      - MYSQL_DATABASE=nextcloud
-      - MYSQL_USER=nextcloud
+      - MYSQL_PASSWORD=nextcloud123
+      - MYSQL_DATABASE=nextcloud123
+      - MYSQL_USER=nextcloud123
       - MYSQL_HOST=js-mariadb
-      - NEXTCLOUD_ADMIN_USER=admin
-      - NEXTCLOUD_ADMIN_PASSWORD=admin
+      - NEXTCLOUD_ADMIN_USER=admin123
+      - NEXTCLOUD_ADMIN_PASSWORD=admin123
     ports:
       - 8081:443
     volumes:

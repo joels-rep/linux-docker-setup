@@ -101,21 +101,22 @@ case $input in
                 ;;
         esac
         #----------NextCloud----------
-        read -r -p "Do you want configure NextCloud Container? [Y/n] " input
+        read -r -p "Do you want to install NextCloud Container? [Y/n] " input
         case $input in
             [yY])
                 cd ~
                 cd ./docker/nextcloud
                 sudo blkid
                 read -r -p "Write the partion UUID to mount: " partition
-                sudo bash -c 'echo "PARTUUID=$partition  /mnt/nextcloud_disk/nextcloud ntfs defaults,nofail,noatime,uid=1000,gid=1000,dmask=007 0 0" >> /etc/fstab'
+                sudo bash -c 'echo "PARTUUID=$partition  /mnt/disk/ exfat defaults,nofail,noatime,uid=1000,gid=1000,dmask=007 0 0" >> /etc/fstab'
+                mkdir /mnt/disk/nextcloud
                 docker-compose up -d
                 ;;
             * )
                 ;;
         esac
         #----------Portainer----------
-        read -r -p "Do you want configure Portainer Container? [Y/n] " input
+        read -r -p "Do you want to install Portainer Container? [Y/n] " input
         case $input in
             [yY])
                 cd ~
@@ -126,7 +127,7 @@ case $input in
                 ;;
         esac
         #----------Wireguard----------
-        read -r -p "Do you want configure Wireguard Container? [Y/n] " input
+        read -r -p "Do you want to install Wireguard Container? [Y/n] " input
         case $input in
             [yY])
                 cd ~
@@ -138,7 +139,7 @@ case $input in
                ;;
         esac
         #----------MongoDB----------
-        read -r -p "Do you want configure MongoDB Container? [Y/n] " input
+        read -r -p "Do you want to install MongoDB Container? [Y/n] " input
          case $input in
              [yY])
                  cd ~
@@ -149,6 +150,18 @@ case $input in
              * )
                 ;;
          esac
+        #----------Python3.11 with Algokit----------
+        read -r -p "Do you want to install Python3.11 with Algokit Container? [Y/n] " input
+         case $input in
+             [yY])
+                 cd ~
+                 #install python 3.11
+
+
+                 ;;
+              * )
+                 ;;
+          esac
 
         ;;
       * )

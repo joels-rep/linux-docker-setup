@@ -1,0 +1,19 @@
+version: '3.3'
+
+services:
+  wireguard:
+    container_name: js-cronjobs
+    restart: unless-stopped
+    image: python:3.11
+    working_dir: /app
+    #user: 1000:1000
+    environment:
+      - TZ=Europe/Lisbon
+    volumes:
+      - /home/pi/docker/vscode/config/workspace/bot_scripts:/app/scripts
+      - /home/pi/docker/vscode/config/workspace/bot_scripts/crontab:/var/spool/cron/crontabs/mycron
+    command: >
+      sh -c "apt-get update && apt-get -y install cron
+      && pip install --upgrade pip
+      && pip install --no-cache-dir -r /app/scripts/requirements.txt
+      && cron -f"

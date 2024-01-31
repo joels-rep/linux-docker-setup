@@ -1,0 +1,21 @@
+version: '3.2'
+
+# We have to change the owner of the folter
+#sudo chown -R pi:pi ./config/
+#sudo chmod 775 ./config/
+
+services:
+  postgresdb:
+    image: postgres:14.1-alpine
+    container_name: js-postgres
+    restart: unless-stopped
+    #user: 1000:1000
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=root
+    ports:
+      - 5432:5432
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /home/pi/docker/postgres/config:/var/lib/postgresql/data
